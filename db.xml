@@ -1,0 +1,41 @@
+# Creas tu aarchivo de base de datos y entras a sql
+sqlite3 ejemplo.db
+
+SQLite version 3.8.5 2014-08-15 22:37:57
+Enter ".help" for usage hints.
+
+sqlite>
+
+
+#para crear la base de datos 
+CREATE TABLE usuarios (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nombre VARCHAR(64) NOT NULL,
+  apellido  VARCHAR(64) NOT NULL,
+  email VARCHAR(128) UNIQUE NOT NULL,
+  fecha_nacimiento DATETIME NOT NULL,
+  genero VARCHAR(10) NOT NULL
+);
+
+
+INSERT INTO usuarios
+ (nombre, apellido, email, fecha_nacimiento, genero, apodo)
+ VALUES
+ ('Carlos', 'Ribero', 'carlosf@yahoo.com', '1970-11-03', 'masculino', 'pato');
+
+ SELECT * FROM usuarios;
+
+ALTER TABLE usuarios ADD apodo CHAR(45) DEFAULT '4' NOT NULL
+
+UPDATE usuarios
+SET apodo = 'apodo'
+WHERE id = 2
+apodo = 'Charly'; 
+
+UPDATE usuarios
+SET apodo = 'apodo'
+WHERE id = 2;
+
+UPDATE usuarios
+SET fecha_nacimiento = '1980-11-03'
+WHERE id = 1;
